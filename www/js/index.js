@@ -21,7 +21,7 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
-var users = {
+/* var users = {
 	"pepe":{
 		"firstname":"pepe",
 		"lastname":"perez",
@@ -32,15 +32,19 @@ var users = {
 		"lastname":"lopez",
 		"mail":"lolopez@gmail.com",
 		"pass":"lola123"},
-};
+}; */
 
 function check_login(){
+	
 	var user = document.getElementById("username").value;
 	var pass = document.getElementById("pass").value;
-	if(users[user]["pass"]==pass)
+
+	var userStored = JSON.parse(localStorage.getItem(user));
+	alert(user);
+	/* if(users[user]["pass"]==pass)
 		alert("U r In");
 	else
-		alert("Wrong");
+		alert("Wrong"); */
 }
 
 function change_register(){
