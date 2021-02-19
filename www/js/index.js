@@ -21,18 +21,6 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
-/* var users = {
-	"pepe":{
-		"firstname":"pepe",
-		"lastname":"perez",
-		"mail":"pperez@gmail.com",
-		"pass":"pepe123"},
-	"lola":{
-		"firstname":"lola",
-		"lastname":"lopez",
-		"mail":"lolopez@gmail.com",
-		"pass":"lola123"},
-}; */
 
 function check_login(){
 	
@@ -40,11 +28,16 @@ function check_login(){
 	var pass = document.getElementById("pass").value;
 
 	var userStored = JSON.parse(localStorage.getItem(user));
-	alert(user);
-	/* if(users[user]["pass"]==pass)
-		alert("U r In");
-	else
-		alert("Wrong"); */
+	
+
+	if(userStored == null){
+		alert("User not found")
+	}else if(userStored["firstname"] == user && pass != userStored["pass"]){
+		alert("User Found, but incorrect password")
+	}else{
+		alert("logged In")
+	}
+	
 }
 
 function change_register(){
